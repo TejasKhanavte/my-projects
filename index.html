@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DRG Group — Professional Electrical Services</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     :root {
-      /* medium / balanced palette */
       --bg: #f5f6f8;
       --section-bg: #e2e5eb;
       --card-bg: #ffffff;
@@ -18,17 +19,22 @@
       --accent: #FFB330;
       --text-dark: #2E2E2E;
       --text-muted: #606770;
-      --shadow: rgba(0,0,0,0.1);
+      --shadow: rgba(0, 0, 0, 0.1);
     }
+
     * {
-      margin:0; padding:0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--text-dark);
       background-color: var(--bg);
       overflow-x: hidden;
     }
+
     .container {
       width: 100%;
       max-width: 1200px;
@@ -47,22 +53,26 @@
       z-index: 1000;
       box-shadow: 0 2px 8px var(--shadow);
     }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
       color: white;
       text-decoration: none;
     }
+
     .nav-links {
       display: flex;
       list-style: none;
       gap: 2rem;
     }
+
     .nav-links a {
       color: white;
       text-decoration: none;
@@ -71,21 +81,26 @@
       padding: 5px 0;
       transition: color 0.3s ease;
     }
+
     .nav-links a::after {
       content: "";
       position: absolute;
-      left: 0; bottom: 0;
+      left: 0;
+      bottom: 0;
       width: 0;
       height: 2px;
       background: var(--accent);
       transition: width 0.3s ease;
     }
+
     .nav-links a:hover {
       color: var(--accent);
     }
+
     .nav-links a:hover::after {
       width: 100%;
     }
+
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -94,13 +109,16 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
+
       .mobile-menu-btn {
         display: block;
       }
+
       .nav-links.active {
         display: flex;
         flex-direction: column;
@@ -112,6 +130,7 @@
         padding: 20px;
       }
     }
+
     a {
       text-decoration: none;
     }
@@ -130,14 +149,18 @@
       background-position: center;
       overflow: hidden;
     }
+
     .hero::after {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
       z-index: 0;
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
@@ -145,6 +168,7 @@
       margin: 0 auto;
       color: white;
     }
+
     .hero-heading {
       overflow: hidden;
       white-space: nowrap;
@@ -154,9 +178,13 @@
       font-weight: 700;
       animation: revealText 1.8s forwards ease-out 0.5s;
     }
+
     @keyframes revealText {
-      to { width: 100%; }
+      to {
+        width: 100%;
+      }
     }
+
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
@@ -164,9 +192,14 @@
       transform: translateY(20px);
       animation: fadeInUp 1s forwards ease-out 1.5s;
     }
+
     @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     .cta-button {
       background: var(--accent);
       color: var(--primary);
@@ -183,21 +216,26 @@
       transform: translateY(20px);
       animation: fadeInUp 1s forwards ease-out 2s;
     }
+
     .cta-button:hover {
       transform: translateY(-3px);
       background: #e6a12e;
     }
+
     .cta-button::after {
       content: "";
       position: absolute;
-      top:50%; left:50%;
-      width: 0; height: 0;
-      background: rgba(255,255,255,0.3);
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       transition: width 0.5s ease, height 0.5s ease;
       z-index: -1;
     }
+
     .cta-button:hover::after {
       width: 180px;
       height: 180px;
@@ -208,6 +246,7 @@
       text-align: center;
       margin-bottom: 60px;
     }
+
     .section-title h2 {
       font-size: 2.5rem;
       color: var(--primary);
@@ -215,6 +254,7 @@
       transform: translateY(20px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .section-title p {
       color: var(--text-muted);
       font-size: 1.1rem;
@@ -228,11 +268,13 @@
       padding: 100px 0;
       background: var(--bg);
     }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
+
     .service-card {
       background: var(--card-bg);
       padding: 30px;
@@ -243,25 +285,30 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px var(--shadow);
     }
+
     .service-icon {
       font-size: 3rem;
       color: var(--primary);
       margin-bottom: 20px;
       transition: transform 0.3s ease, color 0.3s ease;
     }
+
     .service-card:hover .service-icon {
       transform: rotate(10deg);
       color: var(--accent);
     }
+
     .service-card h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
       color: var(--text-dark);
     }
+
     .service-card p {
       color: var(--text-muted);
     }
@@ -271,12 +318,14 @@
       padding: 100px 0;
       background: var(--section-bg);
     }
+
     .owner-content {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 50px;
       align-items: center;
     }
+
     .owner-photo img {
       width: 100%;
       max-width: 350px;
@@ -286,39 +335,52 @@
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .owner-details {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .owner-details h2 {
       font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 20px;
     }
+
     .owner-name {
       font-size: 1.8rem;
       color: var(--text-dark);
       margin-bottom: 10px;
     }
-    .experience, .qualifications {
+
+    .experience,
+    .qualifications {
       margin-bottom: 30px;
     }
-    .experience h3, .qualifications h3 {
+
+    .experience h3,
+    .qualifications h3 {
       color: var(--primary);
       margin-bottom: 15px;
       font-size: 1.3rem;
     }
-    .experience ul, .qualifications ul {
+
+    .experience ul,
+    .qualifications ul {
       list-style: none;
       padding-left: 20px;
     }
-    .experience li, .qualifications li {
+
+    .experience li,
+    .qualifications li {
       margin-bottom: 8px;
       color: var(--text-muted);
       position: relative;
     }
-    .experience li:before, .qualifications li:before {
+
+    .experience li:before,
+    .qualifications li:before {
       content: "•";
       color: var(--accent);
       font-weight: bold;
@@ -332,29 +394,35 @@
       padding: 100px 0;
       background: var(--bg);
     }
+
     .contact-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
     }
+
     .contact-info {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .contact-info h2 {
       font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 30px;
     }
+
     .contact-detail {
       margin-bottom: 25px;
     }
+
     .contact-detail h3 {
       color: var(--text-dark);
       margin-bottom: 10px;
       font-size: 1.2rem;
     }
+
     .phone-number {
       font-size: 1.5rem;
       color: var(--primary);
@@ -363,11 +431,13 @@
       display: block;
       margin-bottom: 30px;
     }
+
     .social-media {
       display: flex;
       gap: 15px;
       margin-top: 20px;
     }
+
     .social-icon {
       width: 50px;
       height: 50px;
@@ -380,10 +450,12 @@
       font-size: 1.5rem;
       transition: all 0.3s ease;
     }
+
     .social-icon:hover {
       background: var(--accent);
       transform: translateY(-3px);
     }
+
     .contact-form {
       background: var(--card-bg);
       padding: 30px;
@@ -393,16 +465,20 @@
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
     .form-group {
       margin-bottom: 20px;
     }
+
     .form-group label {
       display: block;
       margin-bottom: 5px;
       color: var(--text-dark);
       font-weight: 500;
     }
-    .form-group input, .form-group textarea {
+
+    .form-group input,
+    .form-group textarea {
       width: 100%;
       padding: 12px;
       border: 2px solid #ccc;
@@ -411,18 +487,23 @@
       color: var(--text-dark);
       transition: border-color 0.3s ease;
     }
-    .form-group input:focus, .form-group textarea:focus {
+
+    .form-group input:focus,
+    .form-group textarea:focus {
       outline: none;
       border-color: var(--primary);
     }
+
     .form-group textarea {
       height: 120px;
       resize: vertical;
     }
+
     #contact-form {
       max-width: 500px;
       margin: 0 auto;
     }
+
     #contact-form button {
       background: var(--primary);
       color: white;
@@ -434,9 +515,11 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     #contact-form button:hover {
       background: #0f1f55;
     }
+
     #thank-you-message {
       text-align: center;
       margin-top: 15px;
@@ -449,16 +532,32 @@
       transform: translateY(0) !important;
     }
 
+    /* Mobile adjustments */
     @media (max-width: 768px) {
-      .owner-content, .contact-content {
+
+      .owner-content,
+      .contact-content {
         grid-template-columns: 1fr;
         gap: 30px;
       }
+
       .services-grid {
         grid-template-columns: 1fr;
       }
+
       .hero-heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        white-space: normal;
+        /* wrap text for mobile */
+        width: auto;
+        /* auto width */
+        animation: none;
+        /* remove animation on mobile */
+      }
+
+      .hero {
+        height: auto;
+        padding: 60px 20px;
       }
     }
 
@@ -505,10 +604,12 @@
       </div>
       <div class="services-grid">
         <div class="service-card">
-        <a href="loginpage.html">  <div class="service-icon"><i class="fas fa-bolt"></i></div>
-          <h3>Electrical Installation</h3>
-          <p>Installation of electrical systems for new builds & renovations</p>
-        </div></a>
+          <a href="loginpage.html">
+            <div class="service-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Electrical Installation</h3>
+            <p>Installation of electrical systems for new builds & renovations</p>
+          </a>
+        </div>
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-tools"></i></div>
           <h3>Maintenance &amp; Repair</h3>
@@ -602,7 +703,8 @@
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/deva_godase9096/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/deva_godase9096/" class="social-icon"><i
+                class="fab fa-instagram"></i></a>
           </div>
         </div>
         <div>
@@ -634,7 +736,8 @@
   <footer style="background: var(--primary); color: white; text-align: center; padding: 30px 0;">
     <div class="container">
       <div>
-        <a href="#" style="font-size: 1.2rem; font-weight: bold; color: white;">DRG <span style="color: var(--accent)">GROUP</span></a>
+        <a href="#" style="font-size: 1.2rem; font-weight: bold; color: white;">DRG <span
+            style="color: var(--accent)">GROUP</span></a>
         <p style="margin-top: 8px; color: var(--text-muted);">© 2025 All Rights Reserved</p>
       </div>
     </div>
@@ -650,7 +753,7 @@
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -697,7 +800,7 @@
     const form = document.getElementById('contact-form');
     const thankYouMsg = document.getElementById('thank-you-message');
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(form);
         fetch(form.action, {
@@ -727,4 +830,5 @@
     }
   </script>
 </body>
+
 </html>
