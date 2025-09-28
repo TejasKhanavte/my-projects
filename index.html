@@ -4,26 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DRG Group — Professional Electrical Services</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
+      /* medium / balanced palette */
+      --bg: #f5f6f8;
+      --section-bg: #e2e5eb;
+      --card-bg: #ffffff;
       --primary: #1A2A6C;
-      --secondary: #FFB330;
-      --dark: #2E2E2E;
-      --light: #FAFAFA;
-      --gray: #888888;
+      --accent: #FFB330;
+      --text-dark: #2E2E2E;
+      --text-muted: #606770;
+      --shadow: rgba(0,0,0,0.1);
     }
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin:0; padding:0; box-sizing: border-box;
     }
     body {
       font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background-color: var(--light);
+      color: var(--text-dark);
+      background-color: var(--bg);
+      overflow-x: hidden;
     }
     .container {
       width: 100%;
@@ -31,6 +35,7 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+
     /* Header */
     header {
       background: var(--primary);
@@ -40,7 +45,7 @@
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px var(--shadow);
     }
     nav {
       display: flex;
@@ -62,10 +67,24 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      position: relative;
+      padding: 5px 0;
       transition: color 0.3s ease;
     }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
     .nav-links a:hover {
-      color: var(--secondary);
+      color: var(--accent);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
     }
     .mobile-menu-btn {
       display: none;
@@ -96,59 +115,94 @@
     a {
       text-decoration: none;
     }
-    /* Hero Section */
+
+    /* Hero */
     .hero {
       position: relative;
-      margin-top: 80px; /* header height offset */
-      height: 80vh;
+      margin-top: 80px;
+      height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6332762f-c568-4737-8cfc-4ab493e04f07.png') no-repeat center/cover;
+      background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6332762f-c568-4737-8cfc-4ab493e04f07.png') no-repeat center/cover;
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6332762f-c568-4737-8cfc-4ab493e04f07.png') no-repeat center/cover;
-      background-size: cover;
-      animation: gradientShift 20s ease infinite;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
     }
     .hero-content {
+      position: relative;
+      z-index: 1;
       max-width: 800px;
       margin: 0 auto;
-      z-index: 1;
+      color: white;
     }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+    .hero-heading {
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      width: 0;
+      font-size: 3rem;
       font-weight: 700;
+      animation: revealText 1.8s forwards ease-out 0.5s;
+    }
+    @keyframes revealText {
+      to { width: 100%; }
     }
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards ease-out 1.5s;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
     }
     .cta-button {
-      background: var(--secondary);
-      color: white;
-      padding: 15px 30px;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 14px 28px;
       border: none;
       border-radius: 5px;
       font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
       transition: transform 0.3s ease, background 0.3s ease;
-      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards ease-out 2s;
     }
     .cta-button:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
       background: #e6a12e;
     }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .cta-button::after {
+      content: "";
+      position: absolute;
+      top:50%; left:50%;
+      width: 0; height: 0;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+      z-index: -1;
     }
+    .cta-button:hover::after {
+      width: 180px;
+      height: 180px;
+    }
+
     /* Section Titles */
     .section-title {
       text-align: center;
@@ -157,16 +211,22 @@
     .section-title h2 {
       font-size: 2.5rem;
       color: var(--primary);
-      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .section-title p {
-      color: var(--gray);
+      color: var(--text-muted);
       font-size: 1.1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    /* Services Section */
+
+    /* Services */
     .services {
       padding: 100px 0;
-      background: var(--light);
+      background: var(--bg);
     }
     .services-grid {
       display: grid;
@@ -174,33 +234,42 @@
       gap: 30px;
     }
     .service-card {
-      background: white;
+      background: var(--card-bg);
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px var(--shadow);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
     }
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 20px var(--shadow);
     }
     .service-icon {
       font-size: 3rem;
       color: var(--primary);
       margin-bottom: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      transform: rotate(10deg);
+      color: var(--accent);
     }
     .service-card h3 {
       font-size: 1.5rem;
       margin-bottom: 15px;
-      color: var(--dark);
+      color: var(--text-dark);
     }
     .service-card p {
-      color: var(--gray);
+      color: var(--text-muted);
     }
-    /* Owner Section */
+
+    /* Owner / About */
     .owner {
       padding: 100px 0;
+      background: var(--section-bg);
     }
     .owner-content {
       display: grid;
@@ -211,9 +280,16 @@
     .owner-photo img {
       width: 100%;
       max-width: 350px;
-      height: auto;
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px var(--shadow);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .owner-details {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .owner-details h2 {
       font-size: 2.5rem;
@@ -222,7 +298,7 @@
     }
     .owner-name {
       font-size: 1.8rem;
-      color: var(--dark);
+      color: var(--text-dark);
       margin-bottom: 10px;
     }
     .experience, .qualifications {
@@ -239,26 +315,32 @@
     }
     .experience li, .qualifications li {
       margin-bottom: 8px;
-      color: var(--gray);
+      color: var(--text-muted);
       position: relative;
     }
     .experience li:before, .qualifications li:before {
       content: "•";
-      color: var(--secondary);
+      color: var(--accent);
       font-weight: bold;
       display: inline-block;
       width: 1em;
       margin-left: -1em;
     }
-    /* Contact Section */
+
+    /* Contact */
     .contact {
       padding: 100px 0;
-      background: var(--light);
+      background: var(--bg);
     }
     .contact-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
+    }
+    .contact-info {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .contact-info h2 {
       font-size: 2.5rem;
@@ -269,7 +351,7 @@
       margin-bottom: 25px;
     }
     .contact-detail h3 {
-      color: var(--dark);
+      color: var(--text-dark);
       margin-bottom: 10px;
       font-size: 1.2rem;
     }
@@ -295,19 +377,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
       font-size: 1.5rem;
       transition: all 0.3s ease;
     }
     .social-icon:hover {
-      background: var(--secondary);
+      background: var(--accent);
       transform: translateY(-3px);
     }
     .contact-form {
-      background: white;
+      background: var(--card-bg);
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px var(--shadow);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .form-group {
       margin-bottom: 20px;
@@ -315,15 +399,16 @@
     .form-group label {
       display: block;
       margin-bottom: 5px;
-      color: var(--dark);
+      color: var(--text-dark);
       font-weight: 500;
     }
     .form-group input, .form-group textarea {
       width: 100%;
       padding: 12px;
-      border: 2px solid #ddd;
+      border: 2px solid #ccc;
       border-radius: 5px;
-      font-size: 1rem;
+      background: #fafafa;
+      color: var(--text-dark);
       transition: border-color 0.3s ease;
     }
     .form-group input:focus, .form-group textarea:focus {
@@ -334,7 +419,6 @@
       height: 120px;
       resize: vertical;
     }
-    /* Contact form override for standalone form style */
     #contact-form {
       max-width: 500px;
       margin: 0 auto;
@@ -356,19 +440,15 @@
     #thank-you-message {
       text-align: center;
       margin-top: 15px;
-      color: green;
+      color: #228b22;
       font-weight: 600;
     }
-    /* Fade-in animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
     @media (max-width: 768px) {
       .owner-content, .contact-content {
         grid-template-columns: 1fr;
@@ -377,12 +457,20 @@
       .services-grid {
         grid-template-columns: 1fr;
       }
-      .hero h1 {
+      .hero-heading {
         font-size: 2.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -402,49 +490,49 @@
   </header>
 
   <section id="home" class="hero">
-    <div class="container hero-content fade-in">
-      <h1>Professional Electrical Solutions</h1>
-      <p>Expert electrical services for residential and commercial properties with over 15 years of experience</p>
+    <div class="container hero-content">
+      <h1 class="hero-heading">Professional Electrical Solution</h1>
+      <p>Expert electrical services for residential & commercial properties with 15+ years experience</p>
       <a href="#contact" class="cta-button">Get Free Consultation</a>
     </div>
   </section>
 
   <section id="services" class="services">
     <div class="container">
-      <div class="section-title fade-in">
-     <h2>Our Services</h2>
+      <div class="section-title">
+        <h2>Our Services</h2>
         <p>Comprehensive electrical solutions for all your needs</p>
       </div>
       <div class="services-grid">
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-bolt"></i></div>
-        <h3>Electrical Installation</h3>
-          <p>Professional installation of electrical systems for new constructions and renovations</p>
-        </div>
-        <div class="service-card fade-in">
+        <div class="service-card">
+        <a href="loginpage.html">  <div class="service-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Electrical Installation</h3>
+          <p>Installation of electrical systems for new builds & renovations</p>
+        </div></a>
+        <div class="service-card">
           <div class="service-icon"><i class="fas fa-tools"></i></div>
-          <h3>Maintenance & Repair</h3>
-          <p>Regular maintenance and emergency repair services to keep your systems running smoothly</p>
+          <h3>Maintenance &amp; Repair</h3>
+          <p>Scheduled upkeep & emergency repairs to maintain performance</p>
         </div>
-        <div class="service-card fade-in">
+        <div class="service-card">
           <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
           <h3>Solar Power Systems</h3>
-          <p>Eco-friendly solar power installation and integration with existing electrical systems</p>
+          <p>Solar PV installation & integration with existing systems</p>
         </div>
-        <div class="service-card fade-in">
+        <div class="service-card">
           <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
           <h3>Lighting Solutions</h3>
-          <p>Custom lighting design and installation for indoor and outdoor spaces</p>
+          <p>Custom lighting design & installation for indoor/outdoor</p>
         </div>
-        <div class="service-card fade-in">
+        <div class="service-card">
           <div class="service-icon"><i class="fas fa-plug"></i></div>
-          <h3>Wiring & Rewiring</h3>
-          <p>Complete wiring solutions for homes, offices, and industrial spaces</p>
+          <h3>Wiring &amp; Rewiring</h3>
+          <p>Complete wiring services for homes, offices, industry</p>
         </div>
-        <div class="service-card fade-in">
+        <div class="service-card">
           <div class="service-icon"><i class="fas fa-exclamation-triangle"></i></div>
           <h3>Emergency Services</h3>
-          <p>24/7 emergency electrical services for urgent repairs and troubleshooting</p>
+          <p>24/7 emergency repair & troubleshooting support</p>
         </div>
       </div>
     </div>
@@ -452,36 +540,36 @@
 
   <section id="owner" class="owner">
     <div class="container">
-      <div class="section-title fade-in">
+      <div class="section-title">
         <h2>About The Owner</h2>
-        <p>Meet the expert behind ProElectra</p>
+        <p>Meet the expert behind DRG Group</p>
       </div>
       <div class="owner-content">
-        <div class="owner-photo fade-in">
-          <img src="tejas111.png" alt="Photo of the owner">
+        <div class="owner-photo">
+          <img src="tejas111.png" alt="Owner Photo">
         </div>
-        <div class="owner-details fade-in">
+        <div class="owner-details">
           <h2 class="owner-name">Devidas Godase</h2>
           <div class="experience">
             <h3>Experience</h3>
             <ul>
-              <li>15+ years of professional electrical experience</li>
-              <li>Master Electrician License No:</li>
-              <li>Specialized in residential and commercial electrical systems</li>
-              <li>Certified in solar power system installation</li>
-              <li>Trained in advanced electrical safety protocols</li>
-              <li>Expert in modern smart home electrical integration</li>
+              <li>15+ years in professional electrical work</li>
+              <li>Master Electrician License No: ____</li>
+              <li>Specialized in residential & commercial systems</li>
+              <li>Certified for solar system installation</li>
+              <li>Trained in advanced safety protocols</li>
+              <li>Expert in smart home electrics</li>
             </ul>
           </div>
           <div class="qualifications">
             <h3>Qualifications & Certifications</h3>
             <ul>
               <li>Licensed Master Electrician</li>
-              <li>OSHA 30-Hour Safety Certified</li>
-              <li>NFPA 70E Electrical Safety Certified</li>
-              <li>Solar Photovoltaic Installation Certified</li>
+              <li>OSHA 30-Hour Certified</li>
+              <li>NFPA 70E Certified</li>
+              <li>Solar Photovoltaic Certified</li>
               <li>Advanced Electrical Theory Training</li>
-              <li>Continuous Professional Development Courses</li>
+              <li>Ongoing Professional Development</li>
             </ul>
           </div>
         </div>
@@ -491,33 +579,33 @@
 
   <section id="contact" class="contact">
     <div class="container">
-      <div class="section-title fade-in">
+      <div class="section-title">
         <h2>Contact Us</h2>
         <p>Send us a message and we’ll get back soon</p>
       </div>
       <div class="contact-content">
-        <div class="contact-info fade-in">
+        <div class="contact-info">
           <h2>Get in Touch</h2>
           <div class="contact-detail">
             <h3>Phone</h3>
-            <a href="tel:+1234567890" class="phone-number">+91 776 802 9696</a>
+            <a href="tel:+91 7768029696" class="phone-number">+91 776 802 9696</a>
           </div>
           <div class="contact-detail">
             <h3>Email</h3>
-            <p>info@drggroup.com</p>
+            <p>drgpowerline@gmail.com</p>
           </div>
           <div class="contact-detail">
             <h3>Location</h3>
-            <p>pune,NDA rode</p>
+            <p>Pune, NDA Road</p>
           </div>
           <div class="social-media">
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/deva_godase9096/" class="social-icon"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-        <div class="fade-in">
+        <div>
           <form id="contact-form" action="https://formspree.io/f/mkgvbnbd" method="POST" class="contact-form">
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -543,11 +631,11 @@
     </div>
   </section>
 
-  <footer style="background: var(--dark); color: white; text-align: center; padding: 30px 0;">
+  <footer style="background: var(--primary); color: white; text-align: center; padding: 30px 0;">
     <div class="container">
       <div>
-        <a href="#" style="font-size: 1.2rem; font-weight: bold; color: white;">DRG <span style="color: var(--secondary)">GROUP</span></a>
-        <p style="margin-top: 8px; color: #ccc;">© 2025 All Rights Reserved</p>
+        <a href="#" style="font-size: 1.2rem; font-weight: bold; color: white;">DRG <span style="color: var(--accent)">GROUP</span></a>
+        <p style="margin-top: 8px; color: var(--text-muted);">© 2025 All Rights Reserved</p>
       </div>
     </div>
   </footer>
@@ -574,28 +662,38 @@
       });
     });
 
-    // Scroll-trigger fade-in using Intersection Observer
+    // Intersection Observer for animations
     document.addEventListener('DOMContentLoaded', () => {
-      const faders = document.querySelectorAll('.fade-in');
+      const elements = document.querySelectorAll(
+        '.section-title h2, .section-title p, .service-card, .owner-photo img, .owner-details, .contact-info, .contact-form'
+      );
       const options = {
         threshold: 0.2,
         rootMargin: "0px 0px -100px 0px"
       };
-      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target);
           }
         });
       }, options);
 
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+      elements.forEach((el, idx) => {
+        el.style.transitionDelay = `${idx * 100}ms`;
+        observer.observe(el);
       });
     });
 
-    // Contact form submit handling
+    // Parallax effect on hero
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('.hero');
+      const offset = window.pageYOffset;
+      hero.style.backgroundPositionY = offset * 0.2 + "px";
+    });
+
+    // Contact form submission
     const form = document.getElementById('contact-form');
     const thankYouMsg = document.getElementById('thank-you-message');
     if (form) {
